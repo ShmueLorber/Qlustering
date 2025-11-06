@@ -16,6 +16,7 @@ Select dataset type
 Change network architecture
 Modify clustering settings
 
+To run the k means algorithm used in the paper, use Kmeans_iris.m
 ## Requirements
 MATLAB R2024b or later
 Statistics and Machine Learning Toolbox
