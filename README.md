@@ -23,8 +23,7 @@ Statistics and Machine Learning Toolbox
 
 ## If you use this code, please cite:
 Shmuel Lorber, Yonatan Dubi. Qlustering: Harnessing Network-Based Quantum Transport for Data Clustering. In preparation.
-A CITATION.cff file is included so that GitHub’s “Cite this repository” button works.
-Once the associated paper is published, this will be updated with full journal and DOI details.
+
 ## License
 This project is licensed under the MIT License
 ## Acknowledgments
