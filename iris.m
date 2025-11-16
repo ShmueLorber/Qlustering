@@ -15,6 +15,7 @@ X = meas;                  % Assign all features to X
 
 % Select specific features: sepal length (1), petal length (3), and petal width (4)
 X = [X(:,1) X(:,3) X(:,4)];
+X = X ./ vecnorm(X, 2, 2);     % Renormalize to unit sphere
 
 % Define the number of distinct classes (species)
 q = 3;
