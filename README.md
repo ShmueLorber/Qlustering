@@ -9,7 +9,7 @@ Qlustering is a quantum clustering algorithm that leverages quantum transport to
 Data are encoded into quantum state vectors and propagated through a pretrained network, where transport dynamics enhance the separation between data groups.  
 This coherence-assisted approach avoids explicit gate-based quantum operations, offering an efficient and hardware-feasible alternative to distance- or kernel-based clustering methods.
 
-##Usage
+## Usage
 Run the main script:
 Qlustering_example
 Adjust network parameters directly in the code.
