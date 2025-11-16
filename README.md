@@ -17,7 +17,7 @@ Adjust network parameters directly in the code.
 
 Select the dataset type using the following scripts:
 
-OverlapWaveFunctionGenerator.m – generates the overlap-controlled wavefunction dataset (the first dataset presented in the paper).
+- OverlapWaveFunctionGenerator.m – generates the overlap-controlled wavefunction dataset (the first dataset presented in the paper).
 
 IPRgenerator.m – creates the localization dataset based on the Inverse Participation Ratio (IPR).
 
