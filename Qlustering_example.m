@@ -2,14 +2,19 @@
 % k- # of input nodes
 % m- # of intermediate nodes
 % q- # of groups= # of output nodes
+% num_states- size of the data set
 % phi- data to cluster
 % tags- predetermined labels
+% centers- base points for groups initialization
+% w- width of each group
 
 k=3;
 m=2;
 q=4;
-num_states=60;
 
+num_states=60;
+centers = [0 10 0; 10 0 0; 0 0 10; -15 15 15; 0 10 -15]; % Centers for the 5 groups
+width = 0.1;  
 [phi,tags] = OverlapWaveFunctionGenerator(k,q,num_states,w,centers);
 
 %% training parameters
@@ -44,4 +49,5 @@ clusters_mat=ConsensusClustering(classification_mat,q);
 disp("Consensus Random index:")
 disp(RI_Consensus)
 disp("Consensus Adjusted random index:")
+
 disp(ARI_Consensus)
