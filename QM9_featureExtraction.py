@@ -114,7 +114,13 @@ for smiles in tqdm(smiles_list, desc="Processing molecules"):
 # To build a uniform matrix, pad shorter vectors with zeros.
 max_sid_len = max(len(v) for v in features_sid)
 features_sid = np.array([np.pad(v, (0, max_sid_len - len(v))) for v in features_sid])
-
+# ==========================================================
+# ========== NORMALIZATION STEP (to unit sphere) ==========
+# ==========================================================
+# Normalize each SID vector to have L2 norm = 1
+norms = np.linalg.norm(features_sid, axis=1, keepdims=True)
+norms[norms == 0] = 1  # avoid division by zero
+features_sid = features_sid / norms
 
 # ==========================================================
 # ========== SAVE ALL RESULTS TO .MAT FILE ==========
@@ -126,3 +132,4 @@ sio.savemat(SAVE_PATH, {
 })
 
 print(f"💾 Saved {len(features_sid)} molecules to {SAVE_PATH}")
+
