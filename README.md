@@ -9,14 +9,19 @@ Qlustering is a quantum clustering algorithm that leverages quantum transport to
 Data are encoded into quantum state vectors and propagated through a pretrained network, where transport dynamics enhance the separation between data groups.  
 This coherence-assisted approach avoids explicit gate-based quantum operations, offering an efficient and hardware-feasible alternative to distance- or kernel-based clustering methods.
 
-## Usage
-Run the main script: Qlustering_example
-Adjust parameters in config.m to:
-Select dataset type
-Change network architecture
-Modify clustering settings
+##Usage
+Run the main script:
+Qlustering_example
+Adjust network parameters directly in the code.
 
-To run the k means algorithm used in the paper, use Kmeans_iris.m
+Select the dataset type using the following scripts:
+OverlapWaveFunctionGenerator.m – generates the overlap-controlled wavefunction dataset (the first dataset presented in the paper).
+IPRgenerator.m – creates the localization dataset based on the Inverse Participation Ratio (IPR).
+QM9_featureExtraction.py – extracts molecules from the QM9 dataset and computes their SID (Sorted Interatomic Distances), used as input to the Qlustering algorithm. Use this code to save a matlab file of the data set and then extract it to Qlustering_example
+iris.m – loads the Iris dataset. Modify the code to include or exclude specific features: [sepal length, sepal width, petal length, petal width].
+
+To reproduce the classical baseline used in the paper, run:
+Kmeans_example.m
 ## Requirements
 MATLAB R2024b or later
 Statistics and Machine Learning Toolbox
