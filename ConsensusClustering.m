@@ -1,5 +1,5 @@
 function clusters = ConsensusClustering(classification_mat,q)
-    % UPGMA clustering on a 60×60 consensus matrix
+    % UPGMA clustering on a given consensus matrix
     % consensus_mat: co‐association matrix with values in [0,1]
     [num_states, num_runs] = size(classification_mat);
     
@@ -29,10 +29,11 @@ function clusters = ConsensusClustering(classification_mat,q)
     xlabel('Data Point Index');
     ylabel('Distance');
     
-    % --- 6) Assign each of the 60 points to one of numClusters clusters
+    % --- 6) Assign each of the points to one of numClusters clusters
     clusters = cluster(Z, 'maxclust', q);
     
     % --- 7) Display or return assignments
     disp('Cluster assignments (1×60):');
     disp(clusters');
+
 end
