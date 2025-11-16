@@ -1,9 +1,9 @@
-function [phi, tags] = OverlapWaveFunctionGenerator(k,q,num_states,width, centers)
+function [phi, tags] = Overlap3DWaveFunctionGenerator(q,num_states,width, centers)
 % Generate quantum state vectors with width interpolation
 % Inputs:
 %   num_states - total number of states
 %   q - number of groups
-%   centers - q x k matrix of group centers
+%   centers - q x 3 matrix of group centers
 %   width - interpolation parameter (0=centered, 1=uniform)
 % Outputs:
 %   phi - state vectors (normalized)
@@ -15,7 +15,7 @@ tags = [];
 
 for i = 1:q
     % Generate uniform random points on unit sphere
-    uniform_points = randn(counts(i), k);
+    uniform_points = randn(counts(i), 3);
     uniform_points = uniform_points ./ vecnorm(uniform_points, 2, 2);
     
     % Interpolate between center and uniform distribution
@@ -42,11 +42,7 @@ end
     
     % Plot each group with the defined colors
     figure;
-    if k==3
-        scatter3(phi(:,1), phi(:,2), phi(:,3), 36, tags, 'filled');
-    else
-        scatter(phi(:,1), phi(:,2), 36, tags, 'filled');
-    end
+    scatter3(phi(:,1), phi(:,2), phi(:,3), 36, tags, 'filled');
     colormap(customColors);
     title('Normalized Quantum Data Using randcorr');
     xlabel('X'); ylabel('Y'); zlabel('Z');
