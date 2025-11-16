@@ -12,12 +12,17 @@ This coherence-assisted approach avoids explicit gate-based quantum operations, 
 ## Usage
 Run the main script:
 Qlustering_example
+
 Adjust network parameters directly in the code.
 
 Select the dataset type using the following scripts:
+
 OverlapWaveFunctionGenerator.m – generates the overlap-controlled wavefunction dataset (the first dataset presented in the paper).
+
 IPRgenerator.m – creates the localization dataset based on the Inverse Participation Ratio (IPR).
+
 QM9_featureExtraction.py – extracts molecules from the QM9 dataset and computes their SID (Sorted Interatomic Distances), used as input to the Qlustering algorithm. Use this code to save a matlab file of the data set and then extract it to Qlustering_example
+
 iris.m – loads the Iris dataset. Modify the code to include or exclude specific features: [sepal length, sepal width, petal length, petal width].
 
 To reproduce the classical baseline used in the paper, run:
