@@ -15,7 +15,7 @@ Qlustering_example
 
 Adjust network parameters directly in the code.
 
-Select the dataset type using the following scripts:
+Select the dataset type ([phi,tags]) using the following scripts:
 
 - OverlapWaveFunctionGenerator.m – generates the overlap-controlled wavefunction dataset (the first dataset presented in the paper).
 
