@@ -1,4 +1,4 @@
-function [Cost,J]=CostFunction(H_mat,k,n,q,gammain,Lin2,Ldep,Lout,psi)
+function [Cost,J]=QlusteringCost(H_mat,k,n,q,gammain,Lin2,Ldep,Lout,psi)
      %QuantumPropagation takes the properties of an open tight-binding network and
      %outputs the normalized current flowing from the output nodes in the steady-state using the Lindblad equation. 
      %notice sometimes modification of the Hamiltonian is neccesary
@@ -7,7 +7,7 @@ function [Cost,J]=CostFunction(H_mat,k,n,q,gammain,Lin2,Ldep,Lout,psi)
     J_vec=zeros(q,size(psi,1));
     psiWithGamaain=psi.*gammain'; % inserting gammain to the picture so we can lose this expression in the future
 
-    for inx=1:size(psi,1)     %runs on each csi
+    for inx=1:size(psi,1)     %runs on each psi
         psihelp=zeros(1,l);
         psihelp(1,2:k+1)=psiWithGamaain(inx,:);
         psihelp=kron(conj(psihelp),psihelp);
