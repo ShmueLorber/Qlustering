@@ -8,16 +8,16 @@
 % centers- base points for groups initialization
 % w- width of each group
 
-k=10;
+k=3;
 m=2;
-q=3;
+q=5;
 
 num_states=60;
 % UNINDENT IF NOT USING FOR IPR (LOCALIZATION): %
 % boundaries=[2 7] ; %IPR variable. Two-element vector [low, high] defining target IPR limits
 centers = [0 10 0; 10 0 0; 0 0 10; -15 15 15; 0 10 -15]; % Centers for the 5 groups
 width = 0.1;  
-[phi,tags] = IPRgenerator(k,boundaries,num_states);
+[phi,tags] = Overlap3DWaveFunctionGenerator(q,num_states,width,centers);
 
 %% training parameters
 numParticles=30;
@@ -30,7 +30,7 @@ RI_mat=zeros(1,iterations);
 ARI_mat=zeros(1,iterations);
 for run=1:iterations
     disp(run);
-    [Hfinal,Jfinal,classification,RI,ARI] = Qlustering(k+q+m,k,q,numParticles,it,phi,tags,boundaries); % add boundaries for the IPR task
+    [Hfinal,Jfinal,classification,RI,ARI] = Qlustering(k+q+m,k,q,numParticles,it,phi,tags);%,boundaries); % add boundaries for the IPR task
     disp("Random index:")
     disp(RI)
     disp("Adjusted random index:")
