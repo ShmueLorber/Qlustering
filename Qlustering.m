@@ -22,7 +22,7 @@ function [Hfinal,Jfinal,classification,RI,ARI] = Qlustering(n,k,q,numParticles,i
     
     %% training
     [Lin2,Ldep,Lout]=LindOperators(l,k,q,gammain,gammadep,gammaout);   % Lindblad superoperators. does not depand on H
-    CostFunction=@(H)QmeansCost2(H,k,n,q,gammain,Lin2,Ldep,Lout,phi);   % Lindblad equation as a cost function
+    CostFunction=@(H)QlusteringCost(H,k,n,q,gammain,Lin2,Ldep,Lout,phi);   % Lindblad equation as a cost function
     H=QlusteringFunction(CostFunction,n,k,q,it,numParticles,Hmax,Hmin,tags); % Qlustering training process
     
     %% final evaluation:
