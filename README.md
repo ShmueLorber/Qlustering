@@ -23,7 +23,7 @@ Select the dataset type ([phi,tags]) using the following scripts:
 
 - QM9_featureExtraction.py – extracts molecules from the QM9 dataset and computes their SID (Sorted Interatomic Distances), used as input to the Qlustering algorithm. Use this code to save a matlab file of the data set and then extract it to Qlustering_example
 
-- iris.m – loads the Iris dataset. Modify the code to include or exclude specific features: [sepal length, sepal width, petal length, petal width].
+- extractIris.m – loads the Iris dataset. Modify the code in-function to include or exclude specific features: [sepal length, sepal width, petal length, petal width]. The number of fetures is as the number of input nodes, k, and the number of classes is as the number of output nodes, q.
 
 To reproduce the classical baseline used in the paper, run:
 Kmeans_example.m
