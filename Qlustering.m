@@ -1,4 +1,4 @@
-function [Hfinal,Jfinal,classification,RI,ARI] = Qlustering(n,k,q,numParticles,it, phi,tags)
+function [Hfinal,Jfinal,classification,RI,ARI] = Qlustering(n,k,q,numParticles,it, phi,tags, boundaries)
     %This code uses the quantum transport to make quantum clustering, or
     %Qlustering. 
     % n- the size of the network
@@ -22,7 +22,11 @@ function [Hfinal,Jfinal,classification,RI,ARI] = Qlustering(n,k,q,numParticles,i
     
     %% training
     [Lin2,Ldep,Lout]=LindOperators(l,k,q,gammain,gammadep,gammaout);   % Lindblad superoperators. does not depand on H
-    CostFunction=@(H)QlusteringCost(H,k,n,q,gammain,Lin2,Ldep,Lout,phi);   % Lindblad equation as a cost function
+    if ~exist('boundaries','var') || isempty(boundaries)
+        CostFunction = @(H) QlusteringCost(H,k,n,q,gammain,Lin2,Ldep,Lout,phi); % Lindblad equation as a cost function
+    else
+        CostFunction = @(H) IPR_QlusteringCost(H,k,n,q,gammain,Lin2,Ldep,Lout,phi,boundaries); % IPR cost function
+    end
     H=QlusteringFunction(CostFunction,n,k,q,it,numParticles,Hmax,Hmin,tags); % Qlustering training process
     
     %% final evaluation:
