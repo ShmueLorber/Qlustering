@@ -19,7 +19,7 @@ Select the dataset type ([phi,tags]) using the following scripts:
 
 - OverlapWaveFunctionGenerator.m – generates the overlap-controlled wavefunction dataset (the first dataset presented in the paper).
 
-- IPRgenerator.m – creates the localization dataset based on the Inverse Participation Ratio (IPR).
+- IPRgenerator.m – creates the localization dataset based on the Inverse Participation Ratio (IPR). dont forget to change the input, k, and output, q, accordingly. also add boundaries, serves as $\Delta_{IPR}$ in the paper.
 
 - QM9_featureExtraction.py – extracts molecules from the QM9 dataset and computes their SID (Sorted Interatomic Distances), used as input to the Qlustering algorithm. Use this code to save a matlab file of the data set and then extract it to Qlustering_example
 
