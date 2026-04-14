@@ -15,14 +15,14 @@ q=4;
 num_states=60;
 centers = [0 10 0; 10 0 0; 0 0 10; -15 15 15; 0 10 -15]; % Centers for the 5 groups
 width = 0.1;  
-[phi,tags] = OverlapWaveFunctionGenerator(k,q,num_states,w,centers);
+[phi,tags] = Overlap3DWaveFunctionGenerator(q,num_states,width,centers);
 
 %% training parameters
 numParticles=30;
-it=70;
+it=10;
 
 
-iterations=10; % Qluster 10 times for evaluation and consensus clustering
+iterations=2; % Qluster 10 times for evaluation and consensus clustering
 classification_mat=zeros(num_states,iterations);
 RI_mat=zeros(1,iterations);
 ARI_mat=zeros(1,iterations);
