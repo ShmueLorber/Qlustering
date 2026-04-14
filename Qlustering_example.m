@@ -13,8 +13,8 @@ m=2;
 q=5;
 
 num_states=60;
-% UNINDENT IF NOT USING FOR IPR (LOCALIZATION): %
-% boundaries=[2 7] ; %IPR variable. Two-element vector [low, high] defining target IPR limits
+% Uncomment only for IPR/localization.
+% boundaries = [7 2];   % Enables IPR workflow; target limits: [high, low].
 centers = [0 10 0; 10 0 0; 0 0 10; -15 15 15; 0 10 -15]; % Centers for the 5 groups
 width = 0.1;  
 [phi,tags] = Overlap3DWaveFunctionGenerator(q,num_states,width,centers);
